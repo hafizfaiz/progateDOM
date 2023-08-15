@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FizzBuzz Result</title>
+</head>
+<body>
+    <h1>Get a FizzBuzz Result!</h1>
+    <form>
+        Type a number: <input type="text" id="num">
+        <input type="button" onclick="myFunction()" value="Click here!">
+    </form>
+    <hr>
+    <p id="result"></p>
+    
+    <script>
+        let outputs = []; 
+        
+        function myFunction() {
+            let x = document.getElementById("num").value;
+            outputs.push(x); 
+            updateOutput(); 
+        }
+        
+        function updateOutput() {
+            let resultText = "";
+            for (let i = 0; i < outputs.length; i++) {
+                let num = parseInt(outputs[i]);
+                let result = "";
+
+                if (num === 0|| isNaN(num)) {
+                    result = "Invalid input";
+                } else {
+                    if (num % 3 === 0) {
+                        result += "Fizz";
+                    }
+                    if (num % 5 === 0) {
+                        result += "Buzz";
+                    }
+                }
+
+                resultText += result || num;
+                resultText += "<br>"; 
+            }
+            document.getElementById("result").innerHTML = resultText;
+        }
+    </script>
+</body>
+</html>
